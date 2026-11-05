@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidharth | sidharth.org</title>
+    <!-- Pixel Fonts from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #050508;
+            --text-color: #ffffff;
+            --border-color: #ffffff;
+            --box-bg: #000000;
+            --accent-cyan: #00ffff;
+            --accent-yellow: #ffff00;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'VT323', monospace;
+            font-size: 24px;
+            line-height: 1.4;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background: radial-gradient(circle at center, #111122 0%, #050508 100%);
+            padding: 20px;
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 90px 40px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 160px 120px, #fff, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            opacity: 0.3;
+        }
+
+        .url-badge {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 14px;
+            color: var(--accent-cyan);
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px #000;
+        }
+
+        /* Deltarune Dialogue Box */
+        .dialogue-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            background-color: var(--box-bg);
+            border: 4px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            max-width: 680px;
+            width: 100%;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Kris Pixel Avatar Frame */
+        .avatar-container {
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+            background-color: #111;
+            border: 2px solid #555;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .kris-portrait {
+            width: 70px;
+            height: 70px;
+            image-rendering: pixelated;
+        }
+
+        .dialogue-content {
+            flex-grow: 1;
+        }
+
+        .speaker-name {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 14px;
+            color: var(--accent-yellow);
+            margin-bottom: 10px;
+        }
+
+        .dialogue-text {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 15px;
+            line-height: 1.8;
+            min-height: 60px;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 18px;
+            background-color: white;
+            margin-left: 4px;
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+            0%, 40% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        /* Scroll Prompt */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .scroll-text {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 12px;
+            color: #aaa;
+            margin-bottom: 10px;
+            animation: bounce 1.5s infinite;
+        }
+
+        .scroll-arrow {
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 12px solid var(--accent-yellow);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        /* About Section */
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .card {
+            background-color: #0a0a12;
+            border: 3px solid #333;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-family: 'Press Start 2P', monospace;
+            color: var(--accent-cyan);
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 26px;
+            margin-bottom: 18px;
+            color: #ddd;
+        }
+
+        .highlight {
+            color: var(--accent-yellow);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .stat-box {
+            background: #121220;
+            border: 2px solid #334;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-label {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 10px;
+            color: #888;
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            color: #fff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 10px;
+            color: #555;
+            border-top: 1px solid #222;
+        }
+
+        @media (max-width: 600px) {
+            .dialogue-wrapper {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .dialogue-text {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="stars"></div>
+        <div class="url-badge">sidharth.org</div>
+
+        <!-- Deltarune Dialogue Box -->
+        <div class="dialogue-wrapper">
+            <div class="avatar-container">
+                <!-- SVG Pixel Art Kris Portrait -->
+                <svg class="kris-portrait" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="3" y="1" width="10" height="4" fill="#0b1b3d"/>
+                    <rect x="2" y="3" width="12" height="6" fill="#143266"/>
+                    <rect x="4" y="5" width="8" height="5" fill="#88c5cc"/>
+                    <rect x="3" y="4" width="3" height="5" fill="#143266"/>
+                    <rect x="10" y="4" width="3" height="5" fill="#143266"/>
+                    <rect x="5" y="7" width="2" height="1" fill="#0b1b3d"/>
+                    <rect x="9" y="7" width="2" height="1" fill="#0b1b3d"/>
+                    <rect x="4" y="10" width="8" height="6" fill="#992567"/>
+                    <rect x="6" y="11" width="4" height="4" fill="#e65c9c"/>
+                    <rect x="2" y="10" width="2" height="4" fill="#992567"/>
+                    <rect x="12" y="10" width="2" height="4" fill="#992567"/>
+                </svg>
+            </div>
+            
+            <div class="dialogue-content">
+                <div class="speaker-name">* Kris</div>
+                <div class="dialogue-text">
+                    <span id="typed-text"></span><span class="cursor"></span>
+                </div>
+            </div>
+        </div>
+
+        <a href="#about" class="scroll-indicator">
+            <div class="scroll-text">[ SCROLL DOWN ]</div>
+            <div class="scroll-arrow"></div>
+        </a>
+    </section>
+
+    <!-- About Section -->
+    <main class="main-content" id="about">
+        
+        <section class="card">
+            <h1>* ABOUT SIDHARTH</h1>
+            <p>Welcome to <span class="highlight">sidharth.org</span>!</p>
+            <p>I build interactive web applications, digital projects, and creative tools.</p>
+        </section>
+
+        <section class="card">
+            <h1>* STATS & INVENTORY</h1>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-label">CLASS</div>
+                    <div class="stat-value">Developer</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">WEAPON</div>
+                    <div class="stat-value">VS Code</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">SPECIAL ATK</div>
+                    <div class="stat-value">Debugging</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">DOMAIN</div>
+                    <div class="stat-value">sidharth.org</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h1>* CONTACT</h1>
+            <p>Want to start a quest together or collaborate on a project?</p>
+            <p>Reach out anytime!</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© sidharth.org | Powered by Determination</p>
+    </footer>
+
+    <script>
+        const textToType = "* Hey... Welcome to sidharth.org. Kris here. Go ahead and scroll down to learn more about Sidharth.";
+        const typedTextElement = document.getElementById("typed-text");
+        let index = 0;
+
+        function typeWriter() {
+            if (index < textToType.length) {
+                typedTextElement.textContent += textToType.charAt(index);
+                index++;
+                setTimeout(typeWriter, 35);
+            }
+        }
+
+        window.addEventListener("DOMContentLoaded", typeWriter);
+    </script>
+</body>
+</html>
