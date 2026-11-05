@@ -210,24 +210,6 @@
             color: var(--accent-yellow);
         }
 
-        /* Interactive Email Flicker Link */
-        .email-link {
-            color: #33aaff;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.1s ease;
-        }
-
-        .email-link:hover {
-            animation: flicker-blue 0.4s infinite;
-        }
-
-        @keyframes flicker-blue {
-            0% { color: #33aaff; }
-            50% { color: #002b66; }
-            100% { color: #33aaff; }
-        }
-
         /* Stats Grid */
         .stats-grid {
             display: grid;
@@ -375,11 +357,11 @@
             </div>
         </section>
 
-        <!-- Get In Touch Box with Email Link -->
+        <!-- Get In Touch Box (Plain text email) -->
         <section class="card">
             <h1>* GET IN TOUCH</h1>
             <p>Want to start a new quest together, collaborate on a project, or just say hello?</p>
-            <p>Send me an email at <a href="mailto:sidharthvasudev4915@gmail.com?subject=Hello%20from%20sidharth.org" class="email-link">sidharthvasudev4915@gmail.com</a> and let's chat!</p>
+            <p>You can reach me at: <span class="highlight">sidharthvasudev4915@gmail.com</span></p>
         </section>
 
     </main>
