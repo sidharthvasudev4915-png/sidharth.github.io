@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sidharth | sidharth.org</title>
-    <!-- Pixel Fonts from Google Fonts -->
+    <!-- Pixel Font styling from Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
@@ -46,6 +46,7 @@
             padding: 20px;
         }
 
+        /* Floating background stars/particles */
         .stars {
             position: absolute;
             width: 100%;
@@ -89,8 +90,8 @@
 
         /* Kris Pixel Avatar Frame */
         .avatar-container {
-            width: 80px;
-            height: 80px;
+            width: 96px;
+            height: 96px;
             flex-shrink: 0;
             background-color: #111;
             border: 2px solid #555;
@@ -98,11 +99,13 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            position: relative;
         }
 
+        /* Pixel Kris representation using CSS/SVG */
         .kris-portrait {
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             image-rendering: pixelated;
         }
 
@@ -119,11 +122,12 @@
 
         .dialogue-text {
             font-family: 'Press Start 2P', monospace;
-            font-size: 15px;
+            font-size: 16px;
             line-height: 1.8;
             min-height: 60px;
         }
 
+        /* Typewriter Cursor */
         .cursor {
             display: inline-block;
             width: 10px;
@@ -145,8 +149,12 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-decoration: none;
+            cursor: pointer;
             transition: transform 0.3s ease;
+        }
+
+        .scroll-indicator:hover {
+            transform: translateY(5px);
         }
 
         .scroll-text {
@@ -170,7 +178,7 @@
             50% { transform: translateY(-6px); }
         }
 
-        /* About Section */
+        /* Content / About Section */
         .main-content {
             max-width: 800px;
             margin: 0 auto;
@@ -185,11 +193,11 @@
             margin-bottom: 40px;
         }
 
-        h1 {
+        h1, h2 {
             font-family: 'Press Start 2P', monospace;
             color: var(--accent-cyan);
             margin-bottom: 20px;
-            font-size: 20px;
+            font-size: 22px;
         }
 
         p {
@@ -205,7 +213,7 @@
         /* Stats Grid */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             margin-top: 25px;
         }
@@ -219,7 +227,7 @@
 
         .stat-label {
             font-family: 'Press Start 2P', monospace;
-            font-size: 10px;
+            font-size: 11px;
             color: #888;
             margin-bottom: 8px;
         }
@@ -229,6 +237,7 @@
             color: #fff;
         }
 
+        /* Footer */
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -245,7 +254,7 @@
                 text-align: center;
             }
             .dialogue-text {
-                font-size: 12px;
+                font-size: 13px;
             }
         }
     </style>
@@ -255,12 +264,13 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="stars"></div>
+        
         <div class="url-badge">sidharth.org</div>
 
-        <!-- Deltarune Dialogue Box -->
+        <!-- Deltarune Style Dialogue Box -->
         <div class="dialogue-wrapper">
             <div class="avatar-container">
-                <!-- SVG Pixel Art Kris Portrait -->
+                <!-- SVG Pixel Art representation of Kris (Dark World style) -->
                 <svg class="kris-portrait" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="3" y="1" width="10" height="4" fill="#0b1b3d"/>
                     <rect x="2" y="3" width="12" height="6" fill="#143266"/>
@@ -284,19 +294,18 @@
             </div>
         </div>
 
-        <a href="#about" class="scroll-indicator">
+        <a href="#about" class="scroll-indicator" style="text-decoration: none;">
             <div class="scroll-text">[ SCROLL DOWN ]</div>
             <div class="scroll-arrow"></div>
         </a>
     </section>
 
-    <!-- About Section -->
+    <!-- Main About Me Content -->
     <main class="main-content" id="about">
         
         <section class="card">
             <h1>* ABOUT SIDHARTH</h1>
-            <p>Welcome to <span class="highlight">sidharth.org</span>!</p>
-            <p>I build interactive web applications, digital projects, and creative tools.</p>
+            <p>I build scratch coding for fun, I work with AI really good, I play many games (Super Mario, Deltarune (my most recent), Pokémon, etc). Lucky you! You just found my site!</p>
         </section>
 
         <section class="card">
@@ -304,27 +313,27 @@
             <div class="stats-grid">
                 <div class="stat-box">
                     <div class="stat-label">CLASS</div>
-                    <div class="stat-value">Developer</div>
+                    <div class="stat-value">Coder, Gamer, and nerd</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-label">WEAPON</div>
-                    <div class="stat-value">VS Code</div>
+                    <div class="stat-label">MAIN WEAPON</div>
+                    <div class="stat-value">Code Editor</div>
                 </div>
                 <div class="stat-box">
                     <div class="stat-label">SPECIAL ATK</div>
-                    <div class="stat-value">Debugging</div>
+                    <div class="stat-value">Problem Solving</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-label">DOMAIN</div>
+                    <div class="stat-label">DOMAINS</div>
                     <div class="stat-value">sidharth.org</div>
                 </div>
             </div>
         </section>
 
         <section class="card">
-            <h1>* CONTACT</h1>
-            <p>Want to start a quest together or collaborate on a project?</p>
-            <p>Reach out anytime!</p>
+            <h1>* GET IN TOUCH</h1>
+            <p>Want to start a new quest together, collaborate on a project, or just say hello?</p>
+            <p>Feel free to reach out via email or check out my work across the web!</p>
         </section>
 
     </main>
@@ -333,6 +342,7 @@
         <p>© sidharth.org | Powered by Determination</p>
     </footer>
 
+    <!-- Typewriter Script -->
     <script>
         const textToType = "* Hey... Welcome to sidharth.org. Kris here. Go ahead and scroll down to learn more about Sidharth.";
         const typedTextElement = document.getElementById("typed-text");
@@ -342,7 +352,7 @@
             if (index < textToType.length) {
                 typedTextElement.textContent += textToType.charAt(index);
                 index++;
-                setTimeout(typeWriter, 35);
+                setTimeout(typeWriter, 40);
             }
         }
 
