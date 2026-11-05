@@ -210,6 +210,24 @@
             color: var(--accent-yellow);
         }
 
+        /* Interactive Email Flicker Link */
+        .email-link {
+            color: #33aaff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.1s ease;
+        }
+
+        .email-link:hover {
+            animation: flicker-blue 0.4s infinite;
+        }
+
+        @keyframes flicker-blue {
+            0% { color: #33aaff; }
+            50% { color: #002b66; }
+            100% { color: #33aaff; }
+        }
+
         /* Stats Grid */
         .stats-grid {
             display: grid;
@@ -330,7 +348,7 @@
             </div>
         </section>
 
-        <!-- New Special Skills Box -->
+        <!-- Special Skills Box -->
         <section class="card">
             <h1>* SPECIAL SKILLS</h1>
             <div class="stats-grid">
@@ -357,10 +375,11 @@
             </div>
         </section>
 
+        <!-- Get In Touch Box with Email Link -->
         <section class="card">
             <h1>* GET IN TOUCH</h1>
             <p>Want to start a new quest together, collaborate on a project, or just say hello?</p>
-            <p>Feel free to reach out via email or check out my work across the web!</p>
+            <p>Send me an email at <a href="mailto:sidharthvasudev4915@gmail.com?subject=Hello%20from%20sidharth.org" class="email-link">sidharthvasudev4915@gmail.com</a> and let's chat!</p>
         </section>
 
     </main>
