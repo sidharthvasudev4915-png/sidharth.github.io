@@ -131,23 +131,25 @@
             box-shadow: 0 0 18px rgba(229, 94, 161, 0.3);
         }
 
-        /* Susie Pixel Avatar Frame (Monster Lizard Style) */
+        /* Character Image Container */
         .avatar-container {
-            width: 96px;
-            height: 96px;
+            width: 110px; /* Sized to fit full illustration */
+            height: 110px;
             flex-shrink: 0;
-            background-color: #15091a;
+            background-color: #0b0512;
             border: 2px solid var(--accent-purple);
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            border-radius: 4px;
         }
 
-        .susie-portrait {
-            width: 80px;
-            height: 80px;
-            image-rendering: pixelated;
+        /* Scaled Susie Image */
+        .char-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Shrinks full image to fit container */
         }
 
         .dialogue-content {
@@ -365,24 +367,11 @@
     <section class="hero">
         <div class="stars"></div>
 
-        <!-- Susie Dialogue Box -->
+        <!-- Deltarune Style Dialogue Box -->
         <div class="dialogue-wrapper">
             <div class="avatar-container">
-                <svg class="susie-portrait" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="1" y="1" width="14" height="6" fill="#cc3399"/>
-                    <rect x="0" y="2" width="16" height="4" fill="#ff66cc"/>
-                    <rect x="2" y="5" width="12" height="6" fill="#331133"/>
-                    <rect x="3" y="6" width="10" height="7" fill="#9933aa"/>
-                    <rect x="4" y="8" width="3" height="2" fill="#ffff00"/>
-                    <rect x="5" y="9" width="1" height="1" fill="#000000"/>
-                    <rect x="9" y="8" width="3" height="2" fill="#ffff00"/>
-                    <rect x="10" y="9" width="1" height="1" fill="#000000"/>
-                    <rect x="4" y="11" width="8" height="2" fill="#000000"/>
-                    <rect x="5" y="11" width="1" height="1" fill="#ffffff"/>
-                    <rect x="7" y="11" width="1" height="1" fill="#ffffff"/>
-                    <rect x="9" y="11" width="1" height="1" fill="#ffffff"/>
-                    <rect x="2" y="13" width="12" height="3" fill="#1a0033"/>
-                </svg>
+                <!-- Illustrated Susie Image replaced SVG -->
+                <img src="image_2.png" alt="Susie" class="char-image">
             </div>
             
             <div class="dialogue-content">
@@ -404,7 +393,7 @@
         
         <div class="section-header">
             <h1>* SCRATCH SHOWROOM</h1>
-            <p>Showroom of my best scratch projects</p>
+            <p>Showroom of Sidharth's best scratch projects</p>
         </div>
 
         <!-- Gallery Grid with Picture Frames on Pedestals -->
