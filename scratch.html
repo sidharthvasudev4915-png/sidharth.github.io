@@ -72,9 +72,41 @@
         }
         .dialogue-content { flex-grow: 1; }
         .speaker-name { font-family: 'Press Start 2P', monospace; font-size: 14px; color: #e55ea1; margin-bottom: 10px; }
-        .dialogue-text { font-family: 'Press Start 2P', monospace; font-size: 15px; line-height: 1.8; min-height: 60px; color: #ffffff; }
-        .cursor { display: inline-block; width: 10px; height: 18px; background-color: #e55ea1; margin-left: 4px; animation: blink 0.8s infinite; }
+        .dialogue-text {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            min-height: 80px;
+            color: #ffffff;
+            word-break: break-word;
+        }
+
+        /* Strobing Blue Link Effect */
+        .scratch-link {
+            color: #00bfff;
+            text-decoration: underline;
+            word-break: break-all;
+            transition: color 0.1s ease;
+        }
+        .scratch-link:hover {
+            animation: strobeBlue 0.3s infinite alternate;
+        }
+        @keyframes strobeBlue {
+            0% { color: #00bfff; }
+            100% { color: #00008b; }
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 16px;
+            background-color: #e55ea1;
+            margin-left: 4px;
+            vertical-align: middle;
+            animation: blink 0.8s infinite;
+        }
         @keyframes blink { 0%, 40% { opacity: 1; } 50%, 100% { opacity: 0; } }
+
         .scroll-indicator {
             position: absolute; bottom: 30px; display: flex; flex-direction: column;
             align-items: center; cursor: pointer; text-decoration: none; transition: transform 0.3s ease;
@@ -83,6 +115,7 @@
         .scroll-text { font-family: 'Press Start 2P', monospace; font-size: 12px; color: #e55ea1; margin-bottom: 10px; animation: bounce 1.5s infinite; }
         .scroll-arrow { width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 12px solid var(--accent-yellow); }
         @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
         .main-content { max-width: 950px; margin: 0 auto; padding: 80px 20px; }
         .section-header { text-align: center; margin-bottom: 60px; }
         .section-header h1 { font-family: 'Press Start 2P', monospace; color: var(--border-color); font-size: 22px; margin-bottom: 10px; }
@@ -128,7 +161,7 @@
             <div class="dialogue-content">
                 <div class="speaker-name">* Susie</div>
                 <div class="dialogue-text">
-                    <span id="typed-text"></span><span class="cursor"></span>
+                    <span id="typed-text"></span><span class="cursor" id="cursor"></span>
                 </div>
             </div>
         </div>
@@ -175,16 +208,31 @@
     <footer><p>© sidharth.org | Powered by Determination</p></footer>
 
     <script>
-        const textToType = "* Hey! Welcome to the showroom of Sidharth's best scratch projects. Go ahead and scroll down to check 'em out!";
+        // HTML typewriter effect that types plain text first, then appends the clickable link once typing finishes
+        const messagePart1 = "* Hey! Welcome to the showroom of Sidharth's best scratch projects. Follow Sidharth in Scratch @: ";
+        const linkUrl = "https://scratch.mit.edu/users/ScratchyCreator_4915/";
+        
         const typedTextElement = document.getElementById("typed-text");
+        const cursorElement = document.getElementById("cursor");
         let index = 0;
+
         function typeWriter() {
-            if (index < textToType.length) {
-                typedTextElement.textContent += textToType.charAt(index);
+            if (index < messagePart1.length) {
+                typedTextElement.textContent += messagePart1.charAt(index);
                 index++;
-                setTimeout(typeWriter, 35);
+                setTimeout(typeWriter, 25);
+            } else {
+                // Once the text finishes typing, create and append the interactive link element
+                const linkElement = document.createElement("a");
+                linkElement.href = linkUrl;
+                linkElement.target = "_blank";
+                linkElement.className = "scratch-link";
+                linkElement.textContent = linkUrl;
+                
+                typedTextElement.appendChild(linkElement);
             }
         }
+
         window.addEventListener("DOMContentLoaded", typeWriter);
     </script>
 </body>
