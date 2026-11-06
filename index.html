@@ -107,7 +107,7 @@
         <div class="stars"></div>
         <div class="dialogue-wrapper">
             <div class="avatar-container">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-fallback="Kris.png" alt="Kris" class="char-image" id="kris-img">
+                <img src="Kris.png" alt="Kris" class="char-image">
             </div>
             <div class="dialogue-content">
                 <div class="speaker-name">* Kris</div>
@@ -156,22 +156,6 @@
     <footer><p>© sidharth.org | Powered by Determination</p></footer>
 
     <script>
-        // Fallback loader to try multiple common filename variations automatically
-        window.addEventListener('DOMContentLoaded', () => {
-            const img = document.getElementById('kris-img');
-            const sources = ['Kris.png', 'kris.png', 'Kris.PNG', 'Kris.webp', 'kris.webp'];
-            let idx = 0;
-            function tryNext() {
-                if (idx < sources.length) {
-                    const testImg = new Image();
-                    testImg.onload = () => { img.src = sources[idx]; };
-                    testImg.onerror = () => { idx++; tryNext(); };
-                    testImg.src = sources[idx];
-                }
-            }
-            tryNext();
-        });
-
         const textToType = "* Hey... Welcome to sidharth.org. Kris here. Go ahead and scroll down to learn more about Sidharth.";
         const typedTextElement = document.getElementById("typed-text");
         let index = 0;
