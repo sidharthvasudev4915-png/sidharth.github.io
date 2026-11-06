@@ -81,7 +81,6 @@
             word-break: break-word;
         }
 
-        /* Strobing Blue Link Effect */
         .scratch-link {
             color: #00bfff;
             text-decoration: underline;
@@ -122,18 +121,21 @@
         .section-header p { color: #aaa; font-size: 24px; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; }
         .pedestal-wrapper { display: flex; flex-direction: column; align-items: center; }
+        
+        /* Interactive hover animation removed */
         .picture-frame {
             width: 100%; height: 200px; background-color: #000; border: 4px solid var(--border-color);
             border-radius: 4px; box-shadow: 0 0 20px rgba(229, 94, 161, 0.2); position: relative;
             display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 15px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .picture-frame:hover { transform: translateY(-8px); box-shadow: 0 0 30px rgba(229, 94, 161, 0.5); border-color: var(--accent-yellow); }
-        .empty-canvas {
-            width: 100%; height: 120px; border: 2px dashed #443355; display: flex;
-            align-items: center; justify-content: center; color: #665577; font-family: 'Press Start 2P', monospace;
-            font-size: 10px; background-color: #0b0512; margin-bottom: 10px;
+
+        .coming-soon-sign {
+            width: 100%; height: 120px; border: 2px dashed #e55ea1; display: flex;
+            align-items: center; justify-content: center; color: var(--accent-yellow); font-family: 'Press Start 2P', monospace;
+            font-size: 11px; background-color: #12061c; margin-bottom: 10px; text-align: center;
+            text-shadow: 2px 2px #000;
         }
+
         .frame-label { font-family: 'Press Start 2P', monospace; font-size: 11px; color: var(--accent-yellow); text-align: center; }
         .pedestal-stand {
             width: 85%; height: 25px; background: linear-gradient(180deg, var(--pedestal-top) 0%, var(--pedestal-base) 100%);
@@ -179,27 +181,45 @@
 
         <div class="gallery-grid">
             <div class="pedestal-wrapper">
-                <div class="picture-frame"><div class="empty-canvas">[ EMPTY FRAME ]</div><div class="frame-label">PROJECT #1</div></div>
+                <div class="picture-frame">
+                    <div class="coming-soon-sign">COMING SOON</div>
+                    <div class="frame-label">PROJECT #1</div>
+                </div>
                 <div class="pedestal-stand"></div><div class="pedestal-base"></div>
             </div>
             <div class="pedestal-wrapper">
-                <div class="picture-frame"><div class="empty-canvas">[ EMPTY FRAME ]</div><div class="frame-label">PROJECT #2</div></div>
+                <div class="picture-frame">
+                    <div class="coming-soon-sign">COMING SOON</div>
+                    <div class="frame-label">PROJECT #2</div>
+                </div>
                 <div class="pedestal-stand"></div><div class="pedestal-base"></div>
             </div>
             <div class="pedestal-wrapper">
-                <div class="picture-frame"><div class="empty-canvas">[ EMPTY FRAME ]</div><div class="frame-label">PROJECT #3</div></div>
+                <div class="picture-frame">
+                    <div class="coming-soon-sign">COMING SOON</div>
+                    <div class="frame-label">PROJECT #3</div>
+                </div>
                 <div class="pedestal-stand"></div><div class="pedestal-base"></div>
             </div>
             <div class="pedestal-wrapper">
-                <div class="picture-frame"><div class="empty-canvas">[ EMPTY FRAME ]</div><div class="frame-label">PROJECT #4</div></div>
+                <div class="picture-frame">
+                    <div class="coming-soon-sign">COMING SOON</div>
+                    <div class="frame-label">PROJECT #4</div>
+                </div>
                 <div class="pedestal-stand"></div><div class="pedestal-base"></div>
             </div>
             <div class="pedestal-wrapper">
-                <div class="picture-frame"><div class="empty-canvas">[ EMPTY FRAME ]</div><div class="frame-label">PROJECT #5</div></div>
+                <div class="picture-frame">
+                    <div class="coming-soon-sign">COMING SOON</div>
+                    <div class="frame-label">PROJECT #5</div>
+                </div>
                 <div class="pedestal-stand"></div><div class="pedestal-base"></div>
             </div>
             <div class="pedestal-wrapper">
-                <div class="picture-frame"><div class="empty-canvas">[ EMPTY FRAME ]</div><div class="frame-label">PROJECT #6</div></div>
+                <div class="picture-frame">
+                    <div class="coming-soon-sign">COMING SOON</div>
+                    <div class="frame-label">PROJECT #6</div>
+                </div>
                 <div class="pedestal-stand"></div><div class="pedestal-base"></div>
             </div>
         </div>
@@ -208,12 +228,10 @@
     <footer><p>© sidharth.org | Powered by Determination</p></footer>
 
     <script>
-        // HTML typewriter effect that types plain text first, then appends the clickable link once typing finishes
         const messagePart1 = "* Hey! Welcome to the showroom of Sidharth's best scratch projects. Follow Sidharth in Scratch @: ";
         const linkUrl = "https://scratch.mit.edu/users/ScratchyCreator_4915/";
         
         const typedTextElement = document.getElementById("typed-text");
-        const cursorElement = document.getElementById("cursor");
         let index = 0;
 
         function typeWriter() {
@@ -222,7 +240,6 @@
                 index++;
                 setTimeout(typeWriter, 25);
             } else {
-                // Once the text finishes typing, create and append the interactive link element
                 const linkElement = document.createElement("a");
                 linkElement.href = linkUrl;
                 linkElement.target = "_blank";
